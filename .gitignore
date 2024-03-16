@@ -1,2 +1,11 @@
-#Ignore any virtual environments used in this repository.
+# Ignore any virtual environments used in this repository.
+.venv/
 venv/
+
+# Local Environment Variables
+env/
+
+# Python local files
+*.pyc
+__pycache__/
+
