@@ -1,0 +1,2 @@
+#Ignore any virtual environments used in this repository.
+venv/
