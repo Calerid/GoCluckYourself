@@ -1,4 +1,4 @@
-#!/home/calerid/projects/GoCluckYourself/venv/bin/python
+#!/home/calerid/Projects/GoCluckYourself/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
