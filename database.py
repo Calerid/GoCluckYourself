@@ -19,9 +19,10 @@ def create_tables(connect):
         #Customers table
         cursor.execute('''CREATE TABLE IF NOT EXISTS customer
                        (customer_id INTEGER PRIMARY KEY,
-                       name TEXT,
+                       name TEXT NOT NULL,
                        phone INTEGER,
-                       notes TEXT)''')
+                       business TEXT NULL, 
+                       notes TEXT NULL)''')
         
         print("Customer table creation complete")
         
