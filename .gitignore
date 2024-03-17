@@ -9,3 +9,6 @@ env/
 *.pyc
 __pycache__/
 
+# SQLite DB File
+go_cluck_yourself.db
+
