@@ -1,4 +1,5 @@
 import sqlite3
+import time
 
 # Create database connection
 def create_connection(db_file):
@@ -6,6 +7,7 @@ def create_connection(db_file):
     try:
         connect = sqlite3.connect(db_file)
         print("SQLite connection established")
+        time.sleep(2)
     except sqlite3.Error as sqliteError:
         print(sqliteError)
     return connect        
@@ -25,6 +27,7 @@ def create_tables(connect):
                        notes TEXT NULL)''')
         
         print("Customer table creation complete")
+        time.sleep(2)
         
         # Sales table
         cursor.execute('''CREATE TABLE IF NOT EXISTS sales
@@ -36,6 +39,7 @@ def create_tables(connect):
                        FOREIGN KEY(customer_id) REFERENCES customer(customer_id))''')
         
         print("Sales table creation complete")
+        time.sleep(2)
         
         #Chicken table
         cursor.execute('''CREATE TABLE IF NOT EXISTS chickens
@@ -49,9 +53,11 @@ def create_tables(connect):
                        sale_price REAL)''')
         
         print("Chicken table creation complete")
+        time.sleep(2)
 
         connect.commit()
         print("Tables initialized successfully")
+        time.sleep(2)
     except sqlite3.Error as sqLiteTableFailure:
         print(sqLiteTableFailure)
 
