@@ -1,3 +1,5 @@
+import sqlite3
+
 class Customer:
     """Represents an individual customer within the application"""
     def __init__(self, customer_id, name, phone, notes):
@@ -58,6 +60,7 @@ class Chicken:
         param cost (float): Accepts a floating point value for the total cost of a chicken.
         param death (str): Accepts a string value MM:DD:YYYY.
         param status (str): Accepts an string either active, sold, or deceased.
+        param sale_price (float): Accepts a floating point value for the total sale price of a chicken.
         """
         self.chicken_id = chicken_id
         self.name = name
@@ -67,6 +70,16 @@ class Chicken:
         self.death = death
         self.status = status
         self.sale_price = sale_price
+
+        def add_chicken(self, chicken_id, hickem, name, breed, birth, cost, status):
+            self.chicken_id = database_query
+            self.status = "active"
+
+        def update_status(self, status): 
+
+        def update_sale(self, status, sale_price):
+
+        def set_death(self, death): 
 
 
 
