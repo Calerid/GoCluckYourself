@@ -2,52 +2,51 @@ import sqlite3
 
 # Create database connection
 def create_connection(db_file):
-    conn = None
+    connect = None
     try:
-        create_connection = sqlite3.connect(db_file)
+        connect = sqlite3.connect(db_file)
         print("SQLite connection established")
     except sqlite3.Error as sqliteError:
         print(sqliteError)
-    return create_connection         
+    return connect        
 
 # Initializes all tables in the database.
 # Fails if the tables cannot be initialized.
-def create_tables(db_connection):
+def create_tables(connect):
     try:
-        cursor = create_connection()
-        
-        #sales table
-        cursor.execute('''CREATE TABLE IF NOT EXISTS sales
-                       transaction_id INTEGER PRIMARY KEY,
-                       FOREIGN KEY(customer) REFERENCES customer(customer_id))
-                       date TEXT,
-                       amount REAL,
-                       eggs_sold INTEGER,
-                       ''')
-        
-        print("Sales table creation complete")
-        
+        cursor = connect.cursor()
+
         #Customers table
         cursor.execute('''CREATE TABLE IF NOT EXISTS customer
-                       customer_id INTEGER PRIMARY KEY,
+                       (customer_id INTEGER PRIMARY KEY,
                        name TEXT,
                        phone INTEGER,
-                       notes TEXT,
-                       ''')
+                       notes TEXT)''')
         
         print("Customer table creation complete")
         
+        # Sales table
+        cursor.execute('''CREATE TABLE IF NOT EXISTS sales
+                       (transaction_id INTEGER PRIMARY KEY,
+                       customer_id INTEGER,
+                       date TEXT,
+                       amount REAL,
+                       eggs_sold INTEGER,
+                       FOREIGN KEY(customer_id) REFERENCES customer(customer_id))''')
+        
+        print("Sales table creation complete")
+        
         #Chicken table
         cursor.execute('''CREATE TABLE IF NOT EXISTS chickens
-                       chicken_id INTEGER PRIMARY KEY,
+                       (chicken_id INTEGER PRIMARY KEY,
                        name TEXT,
                        breed TEXT,
                        birth TEXT,
-                       cost REAL,
-                       ''')
+                       cost REAL)''')
+        
         print("Chicken table creation complete")
 
-        db_connection.commit()
+        connect.commit()
         print("Tables initialized successfully")
     except sqlite3.Error as sqLiteTableFailure:
         print(sqLiteTableFailure)

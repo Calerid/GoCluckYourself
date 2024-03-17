@@ -4,11 +4,14 @@ def main():
     database = "go_cluck_yourself.db"
     connection = create_connection(database)
     if connection is not None:
-        # Establishes tables
-        create_tables(connection)
-        connection.close()
-
-        print("database connection completed")
-        
+        try:
+            create_tables(connection)
+            connection.close()
+            print("Database tables initialized successfully")
+        except Exception as e:
+            print(f"An error occurred during table creation: {e}")
     else:
-        print("An error occured during DB creation. Connection not established or error in table creation.")
+        print("An error occurred during database connection establishment.")
+
+if __name__ == "__main__":
+    main()
