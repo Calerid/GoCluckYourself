@@ -45,7 +45,8 @@ def create_tables(connect):
                        birth TEXT,
                        cost REAL,
                        death TEXT NULL,
-                       status TEXT)''')
+                       status TEXT,
+                       sale_price REAL)''')
         
         print("Chicken table creation complete")
 

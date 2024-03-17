@@ -47,17 +47,17 @@ class Sale:
 
 class Chicken:
     """Represents an individual chicken object in the application"""
-    def __init__(self, chicken_id, name, breed, birth, cost, death, status):
+    def __init__(self, chicken_id, name, breed, birth, cost, death, status, sale_price):
         """
         Chicken:
-        Represents an individual chicken in the database. A chicken can be altered but their id will remaain untouched.
+        Represents an individual chicken in the database. The name, status, and death 
         param chicken_id (int): Unique identifier for a chicken object.
         param name (str): Accepts a string value and has a method for updating.
         param breed (str): Accepts a string value for defining the breed.
         param birth (str): Accepts a string value MM:DD:YYYY
         param cost (float): Accepts a floating point value for the total cost of a chicken.
         param death (str): Accepts a string value MM:DD:YYYY.
-        param status (str): Accepts an string either active or deceased.
+        param status (str): Accepts an string either active, sold, or deceased.
         """
         self.chicken_id = chicken_id
         self.name = name
@@ -66,6 +66,7 @@ class Chicken:
         self.cost = cost
         self.death = death
         self.status = status
+        self.sale_price = sale_price
 
 
 
