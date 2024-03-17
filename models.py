@@ -34,16 +34,16 @@ class Sale:
         self.amount = amount
         self.quantity = quantity
 
-        def create(self, transaction_id, date, amount, quantity):
+        #def create(self, transaction_id, date, amount, quantity):
             
 
-        def delete(self, transaction_id):       
+        #def delete(self, transaction_id):       
 
 
-        def update_amount(self, transaction_id, amount):
+        #def update_amount(self, transaction_id, amount):
 
 
-        def update_quantity(self, transaction_id, quantity):
+        #def update_quantity(self, transaction_id, quantity):
 
      
 
@@ -71,7 +71,12 @@ class Chicken:
         self.status = status
         self.sale_price = sale_price
 
+        def get_chicken(self, chicken_id):
+            
+            return (self.chicken_id, self.name, self.breed, self.birth, self.cost, self.death, self.status, self.sale_price)
+
         def add_chicken(self, chicken_id, hickem, name, breed, birth, cost, status):
+            """Takes in all params and returns a new database object"""
             self.chicken_id = database_query
             self.status = "active"
 
