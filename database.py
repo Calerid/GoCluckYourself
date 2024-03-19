@@ -61,3 +61,26 @@ def create_tables(connect):
     except sqlite3.Error as sqLiteTableFailure:
         print(sqLiteTableFailure)
 
+class DatabaseFunctions:
+
+    def create_new_entry(table, column, payload):
+        conn = sqlite3.connect('go_cluck_yourself.db')
+
+    def get_last_id(table, column):
+        conn = sqlite3.connect('go_cluck_yourself.db')
+        cursor = conn.cursor()
+        query = f"SELECT MAX {column} FROM {table}"
+        
+        cursor.execute(query)
+        last_id = cursor.fetchone()[0]
+
+        cursor.close()
+        conn.close()
+
+        return last_id
+
+        
+        
+
+
+
