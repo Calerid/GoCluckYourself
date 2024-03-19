@@ -1,4 +1,5 @@
 import sqlite3
+from database import DatabaseFunctions
 
 class Customer:
     """Represents an individual customer within the application"""
@@ -71,21 +72,18 @@ class Chicken:
         self.status = status
         self.sale_price = sale_price
 
-        def get_chicken(self, chicken_id):
-            
-            return (self.chicken_id, self.name, self.breed, self.birth, self.cost, self.death, self.status, self.sale_price)
+    def get_chicken(self, chicken_id):
+        connection = sqlite3.connect("go_cluck_yourself.db")
+        
+        return (self.chicken_id, self.name, self.breed, self.birth, self.cost, self.death, self.status, self.sale_price)
 
-        def add_chicken(self, chicken_id, hickem, name, breed, birth, cost, status):
-            """Takes in all params and returns a new database object"""
-            self.chicken_id = database_query
-            self.status = "active"
+    def add_chicken(self, chicken_id, hickem, name, breed, birth, cost, status):
+        """Takes in all params and returns a new database object"""
+        chicken_id = DatabaseFunctions.get_last_id("chickens", "chicken_id") + 1
+        self.status = "active"
 
-        def update_status(self, status): 
+    def update_status(self, status): 
 
-        def update_sale(self, status, sale_price):
+    def update_sale(self, status, sale_price):
 
-        def set_death(self, death): 
-
-
-
-
+    def set_death(self, death): 
